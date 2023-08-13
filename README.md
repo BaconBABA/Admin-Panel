@@ -1,4 +1,3 @@
-```lua
 local player = game.Players.LocalPlayer
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
@@ -94,12 +93,10 @@ noclipButton.Parent = background
 local function toggleNoclipLoop()
     local character = player.Character
     local floatName = "Floating"
-
     while isNoclipEnabled do
         if character and character:FindFirstChild("HumanoidRootPart") then
             local rootPart = character:WaitForChild("HumanoidRootPart")
             local speaker = rootPart:FindFirstChild("Humanoid")
-            
             for _, child in pairs(character:GetDescendants()) do
                 if child:IsA("BasePart") and child.Name ~= floatName then
                     if isNoclipEnabled then
@@ -116,7 +113,6 @@ end
 
 noclipButton.MouseButton1Click:Connect(function()
     isNoclipEnabled = not isNoclipEnabled
-    
     if isNoclipEnabled then
         toggleNoclipLoop()
     else
@@ -191,18 +187,15 @@ local function enableDragging(gui)
     local dragInput
     local dragStart
     local startPos
-
     local function update(input)
         local delta = input.Position - dragStart
         gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
     end
-
     gui.InputBegan:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 then
             dragging = true
             dragStart = input.Position
             startPos = gui.Position
-
             input.Changed:Connect(function()
                 if input.UserInputState == Enum.UserInputState.End then
                     dragging = false
@@ -210,13 +203,11 @@ local function enableDragging(gui)
             end)
         end
     end)
-
     gui.InputChanged:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseMovement then
             dragInput = input
         end
     end)
-
     UserInputService.InputChanged:Connect(function(input)
         if input == dragInput and dragging then
             update(input)
@@ -225,4 +216,3 @@ local function enableDragging(gui)
 end
 
 enableDragging(mainFrame)
-```
