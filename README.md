@@ -1,4 +1,4 @@
-```
+```lua
 local player = game.Players.LocalPlayer
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
