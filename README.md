@@ -15,20 +15,20 @@ screenGui.IgnoreGuiInset = true
 screenGui.Parent = player.PlayerGui
 
 local mainFrame = Instance.new("Frame")
-mainFrame.Size = UDim2.new(0, 200, 0, 320) -- Increased height for the noclip and inf jump buttons
-mainFrame.Position = UDim2.new(1, -210, 0, 10) -- Top-right corner
+mainFrame.Size = UDim2.new(0, 200, 0, 320)
+mainFrame.Position = UDim2.new(1, -210, 0, 10)
 mainFrame.BackgroundTransparency = 1.0
 mainFrame.Parent = screenGui
 
 local background = Instance.new("Frame")
-background.BackgroundColor3 = Color3.fromRGB(30, 30, 30) -- Dark gray color for the background
+background.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 background.BorderSizePixel = 0
 background.Size = UDim2.new(1, 0, 1, 0)
 background.Parent = mainFrame
 
 local titleText = Instance.new("TextLabel")
 titleText.Text = "Admin Panel"
-titleText.TextColor3 = Color3.fromRGB(255, 255, 255) -- White color for the title
+titleText.TextColor3 = Color3.fromRGB(255, 255, 255)
 titleText.Font = Enum.Font.SourceSansBold
 titleText.TextSize = 18
 titleText.Size = UDim2.new(1, 0, 0, 30)
@@ -158,8 +158,7 @@ destroyGuiButton.Text = "Destroy GUI"
 destroyGuiButton.Position = UDim2.new(0, 10, 0, 320)
 destroyGuiButton.Size = UDim2.new(0, 180, 0, 30)
 destroyGuiButton.Parent = background
-destroyGuiButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Set the button color to red
-
+destroyGuiButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 destroyGuiButton.MouseButton1Click:Connect(function()
     screenGui:Destroy()
 end)
